@@ -1,52 +1,52 @@
-import  { useEffect, useState } from "react";
+// import  { useEffect, useState } from "react";
 
-const SearchBox = () => {
-   const [searchData, setSearchData] = useState([]);
-   const [search, setSearch] = useState("");
-   const [isButtoClicked, setIsButtonClicked]=useState(false)
+// const SearchBox = () => {
+//    const [searchData, setSearchData] = useState([]);
+//    const [search, setSearch] = useState("");
+//    const [isButtoClicked, setIsButtonClicked]=useState(false)
 
 
-   useEffect(() => {
+//    useEffect(() => {
   
-    const fetchData = async () => {
-         try {
-            const res = await fetch("http://www.omdbapi.com/?apikey=c9ddef8a");
-            const data = await res.json();
-            setSearchData(data);
-         } catch (error) {
-            console.error("Error fetching data:", error);
-         }
-      };
+//     const fetchData = async () => {
+//          try {
+//             const res = await fetch("http://www.omdbapi.com/?apikey=c9ddef8a");
+//             const data = await res.json();
+//             setSearchData(data);
+//          } catch (error) {
+//             console.error("Error fetching data:", error);
+//          }
+//       };
 
-   fetchData()
-   }, [search]);
+//    fetchData()
+//    }, [search]);
 
-   function handleChange(e) {
-      setSearch(e.target.value);
-   }
-const handleClick=()=>{
-setIsButtonClicked(true)
-}
+//    function handleChange(e) {
+//       setSearch(e.target.value);
+//    }
+// const handleClick=()=>{
+// setIsButtonClicked(true)
+// }
 
-console.log("searchdata", searchData)
+// console.log("searchdata", searchData)
 
-   return (
-      <div className="searchBox" style={{ border: "3px solid silver", borderRadius: 10, display: "flex", gap: 100 }}>
-         <div className="searchLogo"> Search Logo </div>
-         <form>
-            <input className="searchInputField" type="text" placeholder="Enter Text To search" value={search} onChange={handleChange} />
-            <button type="submit" className="searchButton" onClick={handleClick}>Search Button</button>
-         </form>
-         <div>
-            {/* {searchData?.map((item) => (
-               <li key={item.id}>{item.title}</li>
-            ))} */}
-{
+//    return (
+//       <div className="searchBox" style={{ border: "3px solid silver", borderRadius: 10, display: "flex", gap: 100 }}>
+//          <div className="searchLogo"> Search Logo </div>
+//          <form>
+//             <input className="searchInputField" type="text" placeholder="Enter Text To search" value={search} onChange={handleChange} />
+//             <button type="submit" className="searchButton" onClick={handleClick}>Search Button</button>
+//          </form>
+//          <div>
+//             {/* {searchData?.map((item) => (
+//                <li key={item.id}>{item.title}</li>
+//             ))} */}
+// {
 
-JSON.stringify(searchData)}
-         </div>
-      </div>
-   );
-};
+// JSON.stringify(searchData)}
+//          </div>
+//       </div>
+//    );
+// };
 
-export default SearchBox;
+// export default SearchBox;

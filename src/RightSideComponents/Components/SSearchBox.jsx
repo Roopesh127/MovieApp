@@ -9,21 +9,21 @@ const SSearchBox = () => {
     const[fetchData,setfetchData] = useState([]);
     const[watchList,setWatchList] = useState([]);
     
+
     const searchMovie = async (title) => {
         const response = await fetch(`${API_url}&s=${title}`)
         const data = await response.json();
         setfetchData(data.Search)
     }
-//     useEffect(()=>{
-    //    searchMovie();
-//    },[])
-// console.log("data" , fetchData)
+
 
     function handleWatchList(item){
       const newList = [...watchList,item]
       setWatchList(newList) 
       console.log("watchList" , newList)
     }
+
+    
   return (
     <>
       <div className="searchBox">
@@ -36,7 +36,7 @@ const SSearchBox = () => {
         fetchData?.length > 0 ?(
              fetchData.map((item,imdbID)=>(
             
-              <div key={imdbID} >
+              <div style={{display : "grid"}} key={imdbID} >
                        <CardrenderComponent  Year={item.Year} Poster={item.Poster} Title={item.Title} imdbID={item.imdbID} />
                        <button onClick={()=>handleWatchList(item)}> Add to WatchList</button>
               </div>
@@ -47,13 +47,15 @@ const SSearchBox = () => {
          )
       }
  
-      {
-        watchList.length > 0 ? (
-          watchList.map((item,index)=>(
-            <WatchList key={index} Title={item.Title}/>
+     <ol>
+        { 
+         watchList.length > 0 ? (
+          watchList.map((item,imdbID)=>(
+           <li key={imdbID}> <WatchList key={imdbID} Title={item.Title} imdbID={item.imdbID}  watchList={watchList} setWatchList={setWatchList} /> </li> 
           ))
-        ) :(<div>No data found</div>)
+         ) :(<div>No data found</div>)
       }
+     </ol>
     </>
   )
 }

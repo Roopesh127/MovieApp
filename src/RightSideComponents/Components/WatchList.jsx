@@ -1,14 +1,12 @@
-const WatchList = ({Title}) => {
+const WatchList = ({Title,imdbID,setWatchList,watchList}) => {
+   const removeList = (imdbID) =>{
+         const newWatchList = watchList.filter((item)=>item.imdbID !== imdbID)
+              setWatchList(newWatchList);
+            //   setwatchListid(imdbID);
+           //   console.log("imdbID",imdbID);
+    }
   return (
-    <div>
-     <ol>
-       <li type="1"> Movie Name : {Title} <button>Remove from WatchList</button></li>
-    </ol>
-        
-          {/* <div> Releasing Year : {Year}</div>
-          <div> IMDBID : {imdbID}</div>
-          <img src = {Poster} alt="Movie Poster" /> */}
-    </div>
+    <div> Movie Name {imdbID} : {Title} <button onClick={()=>removeList(imdbID)}>Remove from WatchList</button></div>
   )
 }
 

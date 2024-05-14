@@ -1,0 +1,13 @@
+.parentdiv{
+background-color: rgba(164, 166, 226, 0.473);
+height: 300px;
+width: 200px;
+display: grid;
+}
+.upperPart{
+
+}
+.lowerPart{
+  background-color: rgb(159, 202, 202);
+  
+}

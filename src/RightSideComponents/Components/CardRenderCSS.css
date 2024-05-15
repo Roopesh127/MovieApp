@@ -2,12 +2,17 @@
 background-color: rgba(164, 166, 226, 0.473);
 height: 300px;
 width: 200px;
-display: grid;
+border-radius: 10px;
+
 }
 .upperPart{
-
+ 
 }
 .lowerPart{
   background-color: rgb(159, 202, 202);
+  height: 120px;
+  width: 200px;
+  border-radius: 10px;
+
   
 }

@@ -36,7 +36,7 @@ const SSearchBox = () => {
         fetchData?.length > 0 ?(
              fetchData.map((item,imdbID)=>(
             
-              <div style={{display : "grid"}} key={imdbID} >
+              <div  key={imdbID} >
                        <CardrenderComponent  Year={item.Year} Poster={item.Poster} Title={item.Title} imdbID={item.imdbID} />
                        <button onClick={()=>handleWatchList(item)}> Add to WatchList</button>
               </div>
